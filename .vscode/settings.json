@@ -1,3 +1,9 @@
 {
-  "conventionalCommits.scopes": ["index.html", "style.css"]
+  "conventionalCommits.scopes": [
+    "index.html",
+    "style.css",
+    "app.js",
+    "ball.js",
+    "paddle.js"
+  ]
 }

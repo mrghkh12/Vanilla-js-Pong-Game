@@ -4,15 +4,16 @@
 }
 
 :root{
-    --hus: 200;
+    --hue: 200;
     --saturation: 50%;
-    --foreground-color: hsl(var(--hus), var(--saturation), 75%);
-    --background-color: hsl(var(--hus), var(--saturation), 20%);
+    --foreground-color: hsl(var(--hue), var(--saturation), 75%);
+    --background-color: hsl(var(--hue), var(--saturation), 20%);
 }
 
 body{
     margin: 0;
     background-color: var(--background-color);
+    overflow: hidden;
 }
 
 .paddle{
