@@ -13,7 +13,7 @@ function updateApp(time){
     if(lastTime){
         const delta = time - lastTime
         ball.update(delta);
-
+        computerPaddle.update(delta, ball.y)
     }
 
     lastTime = time
