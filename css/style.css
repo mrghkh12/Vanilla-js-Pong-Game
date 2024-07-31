@@ -1,6 +1,8 @@
 
 *,*::after , *::before{
     box-sizing: border-box;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
 :root{
@@ -29,6 +31,7 @@ body{
 
 .paddle.left{
     left: 2vw;
+    
 }
 
 .paddle.right{
@@ -68,4 +71,52 @@ body{
 .score > :first-child{
     text-align: right;
     border-right: 0.5vh solid var(--foreground-color);
+}
+
+
+.menu-wrapper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.menu-wrapper .menu{
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50% , -50%);
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 600px;
+    max-width: 90%;
+    padding: 50px 40px;
+    text-align: center;
+    border-radius: 20px;
+}
+.menu-wrapper .menu .title{
+    font-size: 4vw;
+    margin-bottom: 5vh;
+}
+
+.menu-wrapper .menu .difficulty{
+    display: flex;
+    justify-content: center;
+}
+.menu-wrapper .menu .difficulty div{
+    flex: 1;
+   background-color: #c9c9c9;
+   border-radius: 5px;
+    padding: 15px 0;
+    margin: 5px 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+.menu-wrapper .menu .difficulty div.active{
+    background-color: rgb(2, 189, 2);
 }
