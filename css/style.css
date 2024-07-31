@@ -28,11 +28,11 @@ body{
 }
 
 .paddle.left{
-    left: 1vw;
+    left: 2vw;
 }
 
 .paddle.right{
-    right: 1vw;
+    right: 2vw;
 }
 
 
@@ -63,6 +63,7 @@ body{
     padding: 0 2vh;
     margin: 1vh 0;
     opacity: 0.5;
+    user-select: none;
 }
 .score > :first-child{
     text-align: right;

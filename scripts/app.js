@@ -25,7 +25,7 @@ function updateApp(time){
 
 function lose(){
     const rect = ball.rect()
-    return rect.right >= window.innerWidth || rect.left <= 0
+    return rect.left > window.innerWidth || rect.right < 0
 }
 function handleLose(){
     const rect = ball.rect()

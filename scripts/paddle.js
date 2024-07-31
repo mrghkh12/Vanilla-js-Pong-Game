@@ -23,7 +23,6 @@ export default class Paddle{
     update(delta , ballHeight, ballWidth){
         if(ballWidth > 60){
             this.position += SPEED * delta * (ballHeight - this.position)
-            console.log(this.position);
         }
 
     }
