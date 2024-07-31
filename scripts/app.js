@@ -9,12 +9,11 @@ const computerPaddle = new Paddle($.getElementById('computer-paddle'))
 const playerScore = $.getElementById('player-score')
 const computerScore = $.getElementById('computer-score')
 
-
 let lastTime = null
 function updateApp(time){
     if(lastTime){
         const delta = time - lastTime
-        ball.update(delta);
+        ball.update(delta, [playerPaddle.rect(), computerPaddle.rect()]);
         computerPaddle.update(delta, ball.y)
 
         if(lose()) handleLose()

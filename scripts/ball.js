@@ -36,7 +36,7 @@ export default class Ball{
         this.velocity = INITIAL_VELOCITY
     }
 
-    update(delta){
+    update(delta, paddleRects){
         this.x += this.direction.x * this.velocity * delta
         this.y += this.direction.y * this.velocity * delta
         this.velocity += VELOCITY_INCREASE * delta
@@ -45,12 +45,21 @@ export default class Ball{
         if(rect.bottom >= window.innerHeight || rect.top <= 0){
             this.direction.y *= -1
         }
-        // if(rect.right >= window.innerWidth || rect.left <= 0){
-        //     this.direction.x *= -1
-        // }
+        if(paddleRects.some(r => isCollision(r, rect))){
+            this.direction.x *= -1
+        }
     }
 }
 
 function randomNumberBetween(min , max){
     return Math.random() * (max - min) + min
+}
+
+function isCollision(ract1, ract2){
+    return (
+        ract1.left <= ract2.right &&
+        ract1.right >= ract2.left &&
+        ract1.top <= ract2.bottom &&
+        ract1.bottom >= ract2.top 
+    )
 }
