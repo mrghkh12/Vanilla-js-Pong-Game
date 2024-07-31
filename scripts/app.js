@@ -14,7 +14,7 @@ function updateApp(time){
     if(lastTime){
         const delta = time - lastTime
         ball.update(delta, [playerPaddle.rect(), computerPaddle.rect()]);
-        computerPaddle.update(delta, ball.y)
+        computerPaddle.update(delta, ball.y,ball.x)
         changeBgColor(delta)
         if(lose()) handleLose()
     }
@@ -40,7 +40,7 @@ function handleLose(){
 
 function changeBgColor(delta){
     let hue = parseFloat(getComputedStyle($.documentElement).getPropertyValue('--hue'))
-    
+
     $.documentElement.style.setProperty('--hue', hue + delta * 0.01)
 }
 

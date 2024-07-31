@@ -1,4 +1,4 @@
-const SPEED = 0.02
+const SPEED = 0.008
 
 export default class Paddle{
     constructor(paddleElem){
@@ -20,7 +20,11 @@ export default class Paddle{
         return this.paddleElem.getBoundingClientRect()
     }
 
-    update(delta , ballHeight){
-        this.position += SPEED * delta * (ballHeight - this.position)
+    update(delta , ballHeight, ballWidth){
+        if(ballWidth > 60){
+            this.position += SPEED * delta * (ballHeight - this.position)
+            console.log(this.position);
+        }
+
     }
 }
