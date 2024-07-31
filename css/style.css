@@ -3,15 +3,24 @@
     box-sizing: border-box;
 }
 
+:root{
+    --hus: 200;
+    --saturation: 50%;
+    --foreground-color: hsl(var(--hus), var(--saturation), 75%);
+    --background-color: hsl(var(--hus), var(--saturation), 20%);
+}
+
 body{
     margin: 0;
-    background-color: #333;
+    background-color: var(--background-color);
 }
 
 .paddle{
+    --position: 50;
+
     position: absolute;
-    background-color: #fff;
-    top: 50vh;
+    background-color: var(--foreground-color);
+    top: calc(var(--position) * 1vh);
     transform: translateY(-50%);
     width: 1vh;
     height: 10vh;
