@@ -15,7 +15,7 @@ function updateApp(time){
         const delta = time - lastTime
         ball.update(delta, [playerPaddle.rect(), computerPaddle.rect()]);
         computerPaddle.update(delta, ball.y)
-
+        changeBgColor(delta)
         if(lose()) handleLose()
     }
 
@@ -38,6 +38,11 @@ function handleLose(){
     computerPaddle.reset()
 }
 
+function changeBgColor(delta){
+    let hue = parseFloat(getComputedStyle($.documentElement).getPropertyValue('--hue'))
+    
+    $.documentElement.style.setProperty('--hue', hue + delta * 0.01)
+}
 
 $.addEventListener('mousemove', e => {
     playerPaddle.position = (e.y / window.innerHeight) * 100
