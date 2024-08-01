@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <script  src="./scripts/app.js" type="module"></script>
+    <script src="https://kit.fontawesome.com/a6243ca7b9.js" crossorigin="anonymous"></script>
+    <title>Pong Game</title>
+</head>
+<body>
+    <div class="loadingWrapper">
+        <div class="loader"></div>
+    </div>
+    
+
+    <div class="score">
+        <div id="player-score">0</div>
+        <div id="computer-score">0</div>
+    </div>
+
+    <div class="ball" id="ball"></div>
+    <div class="paddle left" id="player-paddle"></div>
+    <div class="paddle right" id="computer-paddle"></div>
+
+    <div class="menu-wrapper">
+        <div class="menu">
+            <h1 class="title">Pong Game</h1>
+            <div class="difficulty">
+                <div class="easy">Easy</div>
+                <div class="normal active">Normal</div>
+                <div class="hard">Hard</div>
+            </div>
+            <div class="action">
+                <div class="point">
+                    <span>Winning Points:</span>
+                    <div class="select-game-point">
+                        <p class="game-point">5</p> <span>🞃</span>
+                        <div class="option">
+                            <p>5</p>
+                            <p>10</p>
+                            <p>15</p>
+                            <p>20</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="play-btn">
+                    <button>Play<span style="color: #ffffff;">&#9654</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
