@@ -52,6 +52,7 @@ function changeBgColor(delta){
 /////////////dyanmic menu////////////////
 
 let gameDifficulty = 'Normal'
+let gamePoint = 5
 
 const difficultyWrapper = $.querySelector('.difficulty')
 difficultyWrapper.addEventListener('click' , e => {
@@ -62,6 +63,15 @@ difficultyWrapper.addEventListener('click' , e => {
         gameDifficulty = e.target.innerHTML
         console.log(gameDifficulty);
     }
+})
+
+const selectGamePoint = $.querySelector('.select-game-point')
+selectGamePoint.addEventListener('click' , e => {
+    let option = selectGamePoint.querySelector('.option')
+    option.classList.toggle('show')
+    let gamePointElem = selectGamePoint.querySelector('.game-point')
+    if(e.target.tagName == 'P') gamePointElem.innerHTML = e.target.innerHTML
+    gamePoint = gamePointElem.innerHTML
 })
 
 // window.requestAnimationFrame(updateApp)

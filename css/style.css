@@ -144,7 +144,7 @@ body{
    align-items: center;
    justify-content: flex-end;
 }
-.menu-wrapper .menu .action .point .select{
+.menu-wrapper .menu .action .point .select-game-point{
     background-color: #c9c9c9;
     border-radius: 5px;
     padding: 5px;
@@ -154,16 +154,18 @@ body{
     text-align: left;
     cursor: pointer;
     margin-left: 5px;
+    user-select: none;
 }
 
-.menu-wrapper .menu .action .point .select span{
+
+.menu-wrapper .menu .action .point .select-game-point span{
     font-size: 15px;
     position: absolute;
     bottom: 5px;
-    right: 7px;
+    right: 5px;
 }
 
-.menu-wrapper .menu .action .point .select .option{
+.menu-wrapper .menu .action .point .select-game-point .option{
     position: absolute;
     background-color: #c9c9c9;
     width: 40px;
@@ -173,12 +175,15 @@ body{
     left: 0;
    display: none;
 }
-.menu-wrapper .menu .action .point .select .option p{
+.menu-wrapper .menu .action .point .select-game-point .option.show{
+    display: block;
+}
+.menu-wrapper .menu .action .point .select-game-point .option p{
     transition: 0.3s;
     padding: 5px;
     text-align: center;
 }
-.menu-wrapper .menu .action .point .select .option p:hover{
+.menu-wrapper .menu .action .point .select-game-point .option p:hover{
     background-color: rgb(79, 202, 79);
     color: #fff;
 }
