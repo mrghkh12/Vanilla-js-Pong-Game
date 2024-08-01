@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <script defer src="./scripts/app.js" type="module"></script>
-
+    <script  src="./scripts/app.js" type="module"></script>
+    <script src="https://kit.fontawesome.com/a6243ca7b9.js" crossorigin="anonymous"></script>
     <title>Pong Game</title>
 </head>
 <body>
@@ -28,12 +28,21 @@
                 <div class="hard">Hard</div>
             </div>
             <div class="action">
-                <select>
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                </select>
-                <button>play</button>
+                <div class="point">
+                    <span>Winning Points:</span>
+                    <div class="select">
+                        5 <span>🞃</span>
+                        <div class="option">
+                            <p>5</p>
+                            <p>10</p>
+                            <p>15</p>
+                            <p>20</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="play-btn">
+                    <button>play<span style="color: #ffffff;">&#9654</span></button>
+                </div>
             </div>
         </div>
     </div>
