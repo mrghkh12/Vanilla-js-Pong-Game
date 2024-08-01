@@ -4,6 +4,7 @@
     "style.css",
     "app.js",
     "ball.js",
-    "paddle.js"
+    "paddle.js",
+    "index.html , style.css"
   ]
 }

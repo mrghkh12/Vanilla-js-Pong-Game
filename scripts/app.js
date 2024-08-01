@@ -3,6 +3,8 @@ import Paddle from "./paddle.js";
 
 const $ = document;
 
+let isFinish = false
+
 const ball = new Ball($.getElementById('ball'))
 const playerPaddle = new Paddle($.getElementById('player-paddle'))
 const computerPaddle = new Paddle($.getElementById('computer-paddle'))
@@ -20,7 +22,14 @@ function updateApp(time){
     }
 
     lastTime = time
-    window.requestAnimationFrame(updateApp)
+    if(!isFinish){
+        window.requestAnimationFrame(updateApp)
+    }
+
+}
+
+function movePlayerPaddle(e){
+    playerPaddle.position = (e.y / window.innerHeight) * 100
 }
 
 function lose(){
@@ -36,6 +45,22 @@ function handleLose(){
     }
     ball.reset()
     computerPaddle.reset()
+    if(gamePoint <= computerScore.innerHTML || gamePoint <= playerScore.innerHTML){
+        
+        isFinish = true
+        $.removeEventListener('mousemove', movePlayerPaddle)
+        menuWrapper.style.display = 'block'
+        difficultyWrapper.innerHTML = ''
+        const selectPointsection = $.querySelector('.action .point')
+        selectPointsection.style.display = 'none'
+        playBtn.innerHTML = 'Play Again<span style="color: #ffffff;">&#9654</span>'
+        playBtn.addEventListener('click' , () => location.reload())
+        if(playerScore.innerHTML > computerScore.innerHTML){
+            difficultyWrapper.innerHTML = '<h2>Congratulations, you were able to <span style="color: rgb(79, 202, 79);">Win🎉</span></h2>'
+        }else{
+            difficultyWrapper.innerHTML = '<h2>Sorry, you <span style="color: red;">lost😔</span></h2>'
+        }
+    }
 }
 
 function changeBgColor(delta){
@@ -44,8 +69,40 @@ function changeBgColor(delta){
     $.documentElement.style.setProperty('--hue', hue + delta * 0.01)
 }
 
-$.addEventListener('mousemove', e => {
-    playerPaddle.position = (e.y / window.innerHeight) * 100
+
+/////////////dyanmic menu////////////////
+
+let gameDifficulty = 'Normal'
+let gamePoint = 5
+
+const difficultyWrapper = $.querySelector('.difficulty')
+difficultyWrapper.addEventListener('click' , e => {
+    if(e.target.tagName === 'DIV'){
+      for(let item of difficultyWrapper.children) item.classList.remove('active')
+        
+        e.target.classList.add('active')
+        gameDifficulty = e.target.innerHTML
+    }
 })
 
-window.requestAnimationFrame(updateApp)
+const selectGamePoint = $.querySelector('.select-game-point')
+selectGamePoint.addEventListener('click' , e => {
+    let option = selectGamePoint.querySelector('.option')
+    option.classList.toggle('show')
+    let gamePointElem = selectGamePoint.querySelector('.game-point')
+    if(e.target.tagName == 'P') gamePointElem.innerHTML = e.target.innerHTML
+    gamePoint = gamePointElem.innerHTML
+})
+
+const menuWrapper = $.querySelector('.menu-wrapper')
+
+const playBtn = $.querySelector('.play-btn button')
+playBtn.addEventListener('click' , e => {
+
+    menuWrapper.style.display = 'none'
+
+    $.addEventListener('mousemove', movePlayerPaddle)
+    window.requestAnimationFrame(updateApp)
+})
+
+
