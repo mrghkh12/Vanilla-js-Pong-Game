@@ -16,7 +16,7 @@ function updateApp(time){
     if(lastTime){
         const delta = time - lastTime
         ball.update(delta, [playerPaddle.rect(), computerPaddle.rect()]);
-        computerPaddle.update(delta, ball.y,ball.x)
+        computerPaddle.update(delta, ball.y,ball.x , gameDifficulty)
         changeBgColor(delta)
         if(lose()) handleLose()
     }
