@@ -31,6 +31,9 @@ function updateApp(time){
 function movePlayerPaddle(e){
     playerPaddle.position = (e.y / window.innerHeight) * 100
 }
+function movePlayerPaddlePhone(e){
+    playerPaddle.position = (e.touches[0].pageY / window.innerHeight) * 100
+}
 
 function lose(){
     const rect = ball.rect()
@@ -49,6 +52,7 @@ function handleLose(){
         
         isFinish = true
         $.removeEventListener('mousemove', movePlayerPaddle)
+        $.removeEventListener('mousemove', movePlayerPaddlePhone)
         menuWrapper.style.display = 'block'
         difficultyWrapper.innerHTML = ''
         const selectPointsection = $.querySelector('.action .point')
@@ -102,6 +106,7 @@ playBtn.addEventListener('click' , e => {
     menuWrapper.style.display = 'none'
 
     $.addEventListener('mousemove', movePlayerPaddle)
+    $.addEventListener('touchmove', movePlayerPaddlePhone)
     window.requestAnimationFrame(updateApp)
 })
 

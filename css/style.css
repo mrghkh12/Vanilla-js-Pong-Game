@@ -102,8 +102,13 @@ body{
     border-radius: 20px;
 }
 .menu-wrapper .menu .title{
-    font-size: 4vw;
+    font-size: 60px;
     margin-bottom: 5vh;
+}
+@media screen and (max-width: 460px) {
+    .menu-wrapper .menu .title{
+        font-size: 10vw;
+    }
 }
 
 .menu-wrapper .menu .difficulty{
