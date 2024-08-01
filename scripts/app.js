@@ -44,8 +44,24 @@ function changeBgColor(delta){
     $.documentElement.style.setProperty('--hue', hue + delta * 0.01)
 }
 
-$.addEventListener('mousemove', e => {
-    playerPaddle.position = (e.y / window.innerHeight) * 100
+// $.addEventListener('mousemove', e => {
+//     playerPaddle.position = (e.y / window.innerHeight) * 100
+// })
+
+
+/////////////dyanmic menu////////////////
+
+let gameDifficulty = 'Normal'
+
+const difficultyWrapper = $.querySelector('.difficulty')
+difficultyWrapper.addEventListener('click' , e => {
+    if(e.target.tagName === 'DIV'){
+      for(let item of difficultyWrapper.children) item.classList.remove('active')
+        
+        e.target.classList.add('active')
+        gameDifficulty = e.target.innerHTML
+        console.log(gameDifficulty);
+    }
 })
 
-window.requestAnimationFrame(updateApp)
+// window.requestAnimationFrame(updateApp)

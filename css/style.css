@@ -125,6 +125,7 @@ body{
 }
 .menu-wrapper .menu .difficulty div.active{
     background-color: rgb(2, 189, 2);
+    color: #fff;
 }
 
 
