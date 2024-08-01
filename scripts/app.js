@@ -110,4 +110,8 @@ playBtn.addEventListener('click' , e => {
     window.requestAnimationFrame(updateApp)
 })
 
-
+let loadingWrapper = $.querySelector('.loadingWrapper')
+window.addEventListener('load', e => {
+    
+    loadingWrapper.style.display = 'none'
+})
