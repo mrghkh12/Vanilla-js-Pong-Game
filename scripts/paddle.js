@@ -1,4 +1,4 @@
-const SPEED = 0.008
+let SPEED
 
 export default class Paddle{
     constructor(paddleElem){
@@ -20,8 +20,20 @@ export default class Paddle{
         return this.paddleElem.getBoundingClientRect()
     }
 
-    update(delta , ballHeight, ballWidth){
-        if(ballWidth > 60){
+    update(delta , ballHeight, ballWidth , gameDifficulty){
+        let computerVision
+        if(gameDifficulty == 'Hard'){
+            computerVision = 50
+            SPEED = 0.02
+        }else if(gameDifficulty == 'Normal'){
+            computerVision = 60
+            SPEED = 0.009
+        }else{
+            computerVision = 70
+            SPEED = 0.006
+        }
+
+        if(ballWidth > computerVision){
             this.position += SPEED * delta * (ballHeight - this.position)
         }
 
